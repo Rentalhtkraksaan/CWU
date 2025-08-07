@@ -22,46 +22,56 @@
 </a>
 
 
-  <h1 class="text-2xl font-bold mb-4 text-center">Verifikasi Pembayaran</h1>
+  <h1 class="text-2xl font-bold mb-4 text-center">LAMAN BENDAHARA</h1>
 
-  <div class="grid grid-cols-3 gap-4 mb-6">
-    <div class="bg-white p-4 rounded shadow">
-      <h2 class="text-lg font-semibold">Total User Login</h2>
-      <p id="totalUser" class="text-3xl font-bold text-blue-600">0</p>
-    </div>
-    <div class="bg-white p-4 rounded shadow">
-      <h2 class="text-lg font-semibold">User Lengkap Data</h2>
-      <p id="totalLengkap" class="text-3xl font-bold text-green-600">0</p>
-    </div>
-    <div class="relative bg-white p-4 rounded shadow">
-      <button id="dropdownBtn" class="text-sm bg-gray-200 px-3 py-1 rounded hover:bg-gray-300">👤 Daftar User</button>
-      <p>akun - password - Pengurus</p>
-      <div id="dropdownMenu" class="absolute right-0 mt-2 w-80 bg-white border border-gray-300 rounded shadow hidden max-h-64 overflow-y-auto z-10">
+  <!-- ... bagian head tetap ... -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-0">
+  <div class="bg-white p-4 rounded shadow">
+    <h2 class="text-lg font-semibold">Total User Login</h2>
+    <p id="totalUser" class="text-3xl font-bold text-blue-600">0</p>
+  </div>
+
+  <div class="bg-white p-4 rounded shadow">
+    <h2 class="text-lg font-semibold">User Data Lengkap</h2>
+    <p id="totalLengkap" class="text-3xl font-bold text-green-600">0</p>
+  </div>
+
+  <div class="relative bg-white p-4 rounded shadow">
+    <button id="dropdownBtn" class="text-sm bg-gray-200 px-3 py-1 rounded hover:bg-gray-300">👤 Daftar User</button>
+    <p class="mt-1 text-sm text-gray-600">akun - password - Pengurus</p>
+
+    <!-- Dropdown muncul ke bawah -->
+    <div id="dropdownMenu" class="absolute top-full mt-2 w-80 bg-white border border-gray-300 rounded shadow hidden z-50">
+      <div class="max-h-60 overflow-y-auto">
         <ul id="userList" class="text-sm divide-y divide-gray-200"></ul>
       </div>
     </div>
   </div>
+</div>
+
+
 
   <!-- Tabel Pembayaran -->
-  <div class="overflow-x-auto max-h-[60vh] overflow-y-auto mb-24 border rounded bg-white">
+
+ <div class="overflow-x-auto max-h-[60vh] overflow-y-auto mb-24 border rounded bg-white">
   <table class="w-full text-sm text-left border-collapse">
     <thead class="bg-gray-200 sticky top-0 z-10">
-
-        <tr>
-          <th class="p-2 border">Jam & Tanggal</th>
-          <th class="p-2 border">Nama</th>
-          <th class="p-2 border">Jenis</th>
-          <th class="p-2 border">Saldo</th>
-          <th class="p-2 border">Bank</th>
-          <th class="p-2 border">Pengirim</th>
-          <th class="p-2 border">Status</th>
-          <th class="p-2 border">Verifikasi</th>
-          <th class="p-2 border">Hapus</th>
-        </tr>
-      </thead>
-      <tbody id="tabelVerifikasi"></tbody>
-    </table>
-  </div>
+      <p>Verifikasi payment</p>
+      <tr>
+        <th class="p-2 border">Jam & Tanggal</th>
+        <th class="p-2 border">Nama</th>
+        <th class="p-2 border">Jenis</th>
+        <th class="p-2 border">Saldo</th>
+        <th class="p-2 border">Bank</th>
+        <th class="p-2 border">Pengirim</th>
+        <th class="p-2 border">Status</th>
+        <th class="p-2 border">Verifikasi</th>
+        <th class="p-2 border">Hapus</th>
+      </tr>
+    </thead>
+    <tbody id="tabelVerifikasi"></tbody>
+  </table>
+</div>
 
   <!-- Overlay Edit User -->
   <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center">
@@ -105,6 +115,7 @@
       messagingSenderId: "40585612014",
       appId: "1:40585612014:web:c88141fee369aca68181ff"
     };
+    
 
     const app = initializeApp(firebaseConfig);
     const db = getDatabase(app);
